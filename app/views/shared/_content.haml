@@ -1,0 +1,12 @@
+.col-md-4
+  .element{style: "background-image: url(#{content.image}"}
+    .right-block
+      .top-block
+        -#= link_to 'd', content, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          -#= fa_icon 'times', class: 'ctrl-icon'
+      .bottom-block
+        = link_to edit_religion_path(id: content.id) do
+          = edit_icon
+  .text-center
+    %h4
+      = content.title

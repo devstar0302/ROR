@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-xs-12.col-sm-5.col-md-2.col-lg-2
+      = render 'shared/left_menu'
+    .col-xs-12.col-sm-7.col-md-10.col-lg10
+      .content
+        .row
+          -@subcategories.each do |subcategory|
+            = render 'subcategory',  subcategory: subcategory
+
+        %br
+        .row
+          .col-md-4
+          .col-md-4
+            = link_to 'Add new', new_religion_category_subcategory_path(religion_id: @category.religion.id, category_id: @category.id), {class: 'btn btn-primary btn-lg btn-block'}
+        %br

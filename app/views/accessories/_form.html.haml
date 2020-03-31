@@ -1,0 +1,18 @@
+= form_for @accessory, :html => {:multipart => true}  do |f|
+  - if @accessory.errors.any?
+    #error_explanation.alert.alert-warning
+      %ul
+        - @accessory.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title'
+  .form-group
+    = f.file_field :image, class: 'image-uploader'
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary btn-block'
+
+
+
+

@@ -1,0 +1,30 @@
+.left-bar
+  .text-left
+    = link_to religions_path do
+      .nesting-0.menu-item{class: "#{active_menu(current_page?(religions_path))}"}
+        Religion
+    - Religion.all.each do |religion|
+      = link_to religion_categories_path(religion) do
+        .nesting-1.menu-item{class: "#{active_menu(current_page?(religion_categories_path(religion)))} #{opened_menu(request.path, religion_categories_path(religion))}"}
+          = religion.title[0..12]
+      - religion.categories.each do |category|
+        = link_to religion_category_subcategories_path(religion, category) do
+          .nesting-2.menu-item{class: "#{active_menu(current_page?(religion_category_subcategories_path(religion, category)))} #{opened_menu(request.path, religion_category_subcategories_path(religion, category))}"}
+            = category.title[0..12]
+        - category.subcategories.each do |subcategory|
+          = link_to religion_category_subcategory_products_path(religion, category, subcategory) do
+            .nesting-3.menu-item{class: "#{active_menu(current_page?(religion_category_subcategory_products_path(religion, category, subcategory)))} #{opened_menu(request.path, religion_category_subcategory_products_path(religion, category, subcategory))}"}
+              = subcategory.title[0..12]
+
+  .text-left
+    = link_to colors_path do
+      .nesting-0.menu-item{class: "#{active_menu(current_page?(colors_path))}"}
+        Colour
+  .text-left
+    = link_to accessories_path do
+      .nesting-0.menu-item{class: "#{active_menu(current_page?(accessories_path))}"}
+        Accessories
+  .text-left
+    = link_to submision_new_path do
+      .nesting-0.menu-item{class: "#{active_menu(current_page?(submision_create_path))}"}
+        Submission

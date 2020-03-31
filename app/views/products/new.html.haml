@@ -1,0 +1,9 @@
+.container
+  .text-center
+    %h2 New product
+  .row
+    .col-md-4
+    .col-md-4
+      = render 'form',  product: @product
+  .text-center
+    = link_to 'Cancel', religion_category_subcategory_products_path(@product.subcategory.category.religion.id, @product.subcategory.category.id, @product.subcategory.id)

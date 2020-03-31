@@ -1,0 +1,14 @@
+.col-md-4
+  .element{style: "background-image: url(#{subcategory.image}"}
+    .right-block
+      .top-block
+        = link_to [subcategory.category.religion, subcategory.category, subcategory], :method => :delete, :data => { :confirm => 'Are you sure you want to delete this?' } do
+          = delete_icon
+      .bottom-block
+        = link_to edit_religion_category_subcategory_path(religion_id: subcategory.category.religion.id, category_id: subcategory.category.id, id: subcategory.id) do
+          = edit_icon
+  .text-center
+    %h4
+      = link_to religion_category_subcategory_products_path religion_id: subcategory.category.religion.id, category_id: subcategory.category.id, subcategory_id: subcategory.id  do
+        %h4
+          = subcategory.title

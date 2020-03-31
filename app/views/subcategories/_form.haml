@@ -1,0 +1,16 @@
+= form_for [subcategory.category.religion, subcategory.category, subcategory], :html => {:multipart => true}  do |f|
+  - if subcategory.errors.any?
+    #error_explanation.alert.alert-warning
+      %ul
+        - subcategory.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title'
+  .form-group
+    = f.file_field :image, class: 'image-uploader'
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary btn-block'
+
+

@@ -1,0 +1,14 @@
+.container.submission
+  .row
+    .col-xs-12.col-sm-5.col-md-2.col-lg-2
+      = render 'shared/left_menu'
+    .col-xs-12.col-sm-7.col-md-10.col-lg10
+      .content
+        - if flash[:result].present?
+          .text-center.alert.alert-success
+            = flash[:result]
+        .row
+          = form_tag submision_create_path, method: :post, class: 'col-md-6 form-group form-inline' do
+            = label_tag 'Email:'
+            = email_field 'email', '', placeholder: 'Email', class: 'form-control'
+            = submit_tag 'Save', class: 'btn btn-primary'

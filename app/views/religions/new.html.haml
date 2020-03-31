@@ -1,0 +1,9 @@
+.container
+  .text-center
+    %h2 New religion
+  .row
+    .col-md-4
+    .col-md-4
+      = render 'form',  content: @religion
+  .text-center
+    = link_to 'Cancel', religions_url

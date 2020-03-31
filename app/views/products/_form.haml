@@ -1,0 +1,20 @@
+= form_for [product.subcategory.category.religion, product.subcategory.category, product.subcategory, product], :html => {:multipart => true}  do |f|
+  - if product.errors.any?
+    #error_explanation.alert.alert-warning
+      %ul
+        - product.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.text_field :model, autofocus: true, class: 'form-control', placeholder: 'Name'
+  .form-group
+    = f.number_field :price, min: 0, step: 0.01, class: 'form-control', placeholder: 'Price'
+  .form-group
+    = f.text_field :stone, class: 'form-control', placeholder: 'Stone Colour'
+  .form-group
+    = f.file_field :image, class: 'image-uploader'
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary btn-block'
+
+

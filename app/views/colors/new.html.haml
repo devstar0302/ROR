@@ -1,0 +1,9 @@
+.container
+  .text-center
+    %h2 New color
+  .row
+    .col-md-4
+    .col-md-4
+      = render 'form', color: @color
+  .text-center
+    = link_to 'Cancel', colors_path

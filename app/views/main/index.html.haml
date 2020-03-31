@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-xs-12.col-sm-5.col-md-2.col-lg-2.left-bar
+      - @items.each do |item|
+        .menu-item.religions
+          = item[:name]
+        - item[:subs].each do |sub|
+          .openable-menu.menu-item.close-menu.nesting-1
+            = sub[:name]
+    .col-xs-12.col-sm-7.col-md-10.col-lg10
+      .content
+        .row
+          -@religions.each do |religion|
+            = render 'shared/content',  content: religion
+
+        %br
+        .row
+          .col-md-4
+          .col-md-4
+            %button.btn.btn-primary.btn-lg.btn-block
+              Add new
+        %br

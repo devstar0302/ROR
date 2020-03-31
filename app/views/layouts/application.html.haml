@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title Italmons
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-header
+          .navbar-brand= link_to 'ITALMONS', root_path
+
+        %ul.nav.navbar-nav.navbar-right
+          -if current_user
+            %li= link_to 'Log out', destroy_user_session_path, method: :delete
+          -else
+            %li= link_to 'Log in', new_user_session_path
+    .container
+      - if flash[:notice]
+        .alert.alert-success.alert-dismissable
+          %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} ×
+          %center= notice
+      - if flash[:alert]
+        .alert.alert-danger.alert-dismissable
+          %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} ×
+          %center= alert
+    = yield

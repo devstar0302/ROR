@@ -1,0 +1,9 @@
+.container
+  .text-center
+    %h2 Editing subcategory
+  .row
+    .col-md-4
+    .col-md-4
+      = render 'form',  subcategory: @subcategory
+  .text-center
+    = link_to 'Cancel', religion_category_subcategories_path(@category.religion.id, @category.id)

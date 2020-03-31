@@ -1,0 +1,9 @@
+.container
+  .text-center
+    %h2 New category
+  .row
+    .col-md-4
+    .col-md-4
+      = render 'form',  category: @category
+  .text-center
+    = link_to 'Cancel', religion_categories_url(@religion.id)
